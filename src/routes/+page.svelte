@@ -1,5 +1,31 @@
 <script>
-import Gallery from "$lib/components/gallery.svelte";
+  import Gallery from "$lib/components/gallery.svelte";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    // Add a small delay to ensure DOM is fully rendered
+    setTimeout(() => {
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            } else {
+              entry.target.classList.remove("active");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    }, 100);
+  });
 </script>
 
 <section class="hero">
@@ -36,7 +62,7 @@ import Gallery from "$lib/components/gallery.svelte";
     
 </section>
 <div class="stats-wrapper">
-  <div class="stats">
+  <div class="stats reveal">
 
     <div class="stat-card">
       <div class="stat-icon">⚡</div>
@@ -64,7 +90,7 @@ import Gallery from "$lib/components/gallery.svelte";
 
   </div>
 </div>
-<section class="about-section">
+<section class="about-section reveal">
     <div class="container">
         <div class="about-left">
             <h2>About Rasuwa Hydropower Limited</h2>
@@ -80,14 +106,14 @@ import Gallery from "$lib/components/gallery.svelte";
             <a href="/about" class="section-btn">Learn More➡️</a>
         </div>
         <div class="about-right">
-            <img src="/gallery/2.jpeg" alt="About Rasuwa Hydropower Limited">
+            <img src="/gallery/2.png" alt="About Rasuwa Hydropower Limited">
         </div>
     </div>
 </section>
-<section class="project-section">
+<section class="project-section reveal">
     <div class="container">
         <div class="project-left">
-        <img src="/gallery/3.jpeg" alt="About Phalakhu Khola Hydropower Project">
+        <img src="/gallery/3.png" alt="About Phalakhu Khola Hydropower Project">
 
         </div>
         <div class="project-right">
@@ -104,7 +130,7 @@ import Gallery from "$lib/components/gallery.svelte";
         </div>
     </div>
 </section>
-<section class="features">
+<section class="features reveal">
   <div class="features-container">
 
     <div class="feature">
@@ -127,7 +153,7 @@ import Gallery from "$lib/components/gallery.svelte";
 
   </div>
 </section>
-<section class="homepage-gallery">
+<section class="homepage-gallery reveal">
   <div class="gallery-container">
 
     <!-- Section Header -->
@@ -209,22 +235,45 @@ import Gallery from "$lib/components/gallery.svelte";
 }
 
     .hero {
-  background: linear-gradient(
-      rgba(10,47,90,0.85),
-      rgba(10,47,90,0.85)
-    ),
-    url("/gallery/1.jpeg");
-  background-size: cover;
-  background-position: center;
   color: white;
   padding: 140px 20px 180px 20px;
   text-align: center;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/gallery/1.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10,47,90,0.6);
+  z-index: 0;
+}
+
 .hero-content {
   max-width: 850px;
-  margin:auto;
+  margin: auto;
+  position: relative;
+  z-index: 2;
 }
 .hero h1 {
     font-size: 44px;
@@ -246,6 +295,8 @@ import Gallery from "$lib/components/gallery.svelte";
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 .btn {
@@ -360,7 +411,8 @@ import Gallery from "$lib/components/gallery.svelte";
     align-items: center;
 }
 .about-left{
-    flex:1;
+    flex: 1;
+    min-width: 0;
 }
 .about-left h2{
     font-size: 28px;
@@ -386,21 +438,38 @@ import Gallery from "$lib/components/gallery.svelte";
     background: var(--primary-red);
 }
 
+.about-right{
+    flex: 0 0 40%;
+    min-width: 0;
+}
+
 .about-right img{
     width: 100%;
+    height: auto;
     border-radius: 12px;
+    display: block;
 }
 .project-section{
     padding: 100px 20px;
     background-color: rgb(248, 249, 250);
     border-radius: 12px;
 }
+
+.project-left{
+    flex: 0 0 40%;
+    min-width: 0;
+}
+
 .project-left img{
     width: 100%;
+    height: auto;
     border-radius: 12px;
+    display: block;
 }
+
 .project-right{
-    flex:1;
+    flex: 1;
+    min-width: 0;
 }
 .project-right h2{
     font-size: 28px;
@@ -458,6 +527,21 @@ import Gallery from "$lib/components/gallery.svelte";
     margin-right: 60px;
     display: flex;
     justify-content: flex-end;
+}
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal:not(.active) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 

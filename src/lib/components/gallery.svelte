@@ -35,6 +35,8 @@
   // Lock background scroll when lightbox is open
   $: {
     document.body.style.overflow = show ? 'hidden' : '';
+    // prevent ancestor transforms affecting fixed positioning
+    document.body.classList.toggle('lightbox-open', show);
   }
 </script>
 
@@ -117,11 +119,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* fixed dimensions to enforce uniform size */
+    width: 85vw;
+    height: 70vh;
+    max-width: 900px;
+    max-height: 600px;
   }
 
   .lightbox img {
-    max-width: 85vw;
-    max-height: 80vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
   }
 
@@ -137,6 +145,7 @@
     padding: 10px 15px;
     border-radius: 6px;
     transition: background 0.3s ease;
+    z-index: 2;
   }
 
   .close-btn:hover,
@@ -146,8 +155,8 @@
   }
 
   .close-btn {
-    top: -50px;
-    right: 0;
+    top: 10px;
+    right: 10px;
   }
 
   .prev-btn {
@@ -180,5 +189,10 @@
       left: 10px;
       right: 10px;
     }
+  }
+
+  /* when lightbox open remove transforms applied for reveal animation to preserve fixed positioning */
+  :global(body.lightbox-open .reveal) {
+    transform: none !important;
   }
 </style>

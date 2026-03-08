@@ -1,4 +1,5 @@
 <script>
+  import { browser } from '$app/environment';
   export let limit = null;
 
   // Load all images from folder
@@ -33,7 +34,7 @@
   }
 
   // Lock background scroll when lightbox is open
-  $: {
+  $: if (browser) {
     document.body.style.overflow = show ? 'hidden' : '';
     // prevent ancestor transforms affecting fixed positioning
     document.body.classList.toggle('lightbox-open', show);

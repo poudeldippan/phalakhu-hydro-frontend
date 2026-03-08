@@ -451,4 +451,77 @@ td{
   border-bottom: 1px solid #eee;
 }
 
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .fact-card {
+    padding: 15px;
+  }
+
+  .section-image img {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .fact-icon {
+    margin-bottom: 10px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  td {
+    padding: 8px 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .container h2 {
+    font-size: 24px;
+  }
+
+  .container p {
+    font-size: 15px;
+  }
+}
 </style>

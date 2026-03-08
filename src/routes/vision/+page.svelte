@@ -64,4 +64,68 @@
         padding: 0px 120px;
     }
     
+/* Responsive Design */
+@media (max-width: 900px) {
+  .page-hero {
+    padding: 80px 50px;
+  }
+
+  .page-hero h1 {
+    font-size: 28px;
+  }
+
+  .vision, .mission, .guiding-values {
+    padding: 0px 60px;
+  }
+
+  .container {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-hero {
+    padding: 60px 30px;
+  }
+
+  .page-hero h1 {
+    font-size: 24px;
+  }
+
+  .vision, .mission, .guiding-values {
+    padding: 0px 30px;
+  }
+
+  .container h2 {
+    font-size: 22px;
+  }
+
+  .container p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 40px 20px;
+  }
+
+  .page-hero h1 {
+    font-size: 20px;
+  }
+
+  .vision, .mission, .guiding-values {
+    padding: 0px 20px;
+  }
+
+  .container {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .container h2 {
+    font-size: 20px;
+  }
+}
 </style>

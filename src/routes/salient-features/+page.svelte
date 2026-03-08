@@ -14,10 +14,10 @@ function toggle(i){
 
 <!-- 1 Project Location -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(1)}>
+<button class="accordion-header" on:click={()=>toggle(1)} aria-expanded={openIndex===1}>
 <span>Project Location</span>
 <span class="icon">{openIndex===1 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===1}
 <div class="accordion-body">
@@ -38,10 +38,10 @@ function toggle(i){
 
 <!-- 2 General Consideration -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(2)}>
+<button class="accordion-header" on:click={()=>toggle(2)} aria-expanded={openIndex===2}>
 <span>General Consideration</span>
 <span class="icon">{openIndex===2 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===2}
 <div class="accordion-body">
@@ -63,10 +63,10 @@ function toggle(i){
 
 <!-- 3 Hydrology -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(3)}>
+<button class="accordion-header" on:click={()=>toggle(3)} aria-expanded={openIndex===3}>
 <span>Hydrology</span>
 <span class="icon">{openIndex===3 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===3}
 <div class="accordion-body">
@@ -85,10 +85,10 @@ function toggle(i){
 
 <!-- 4 Diversion Weir -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(4)}>
+<button class="accordion-header" on:click={()=>toggle(4)} aria-expanded={openIndex===4}>
 <span>Diversion Weir</span>
 <span class="icon">{openIndex===4 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===4}
 <div class="accordion-body">
@@ -106,10 +106,10 @@ function toggle(i){
 
 <!-- 5 Intake -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(5)}>
+<button class="accordion-header" on:click={()=>toggle(5)} aria-expanded={openIndex===5}>
 <span>Intake</span>
 <span class="icon">{openIndex===5 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===5}
 <div class="accordion-body">
@@ -127,10 +127,10 @@ function toggle(i){
 
 <!-- 6 Gravel Trap -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(6)}>
+<button class="accordion-header" on:click={()=>toggle(6)} aria-expanded={openIndex===6}>
 <span>Gravel Trap</span>
 <span class="icon">{openIndex===6 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===6}
 <div class="accordion-body">
@@ -148,10 +148,10 @@ function toggle(i){
 
 <!-- 7 Desilting Basin -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(7)}>
+<button class="accordion-header" on:click={()=>toggle(7)} aria-expanded={openIndex===7}>
 <span>Desilting Basin</span>
 <span class="icon">{openIndex===7 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===7}
 <div class="accordion-body">
@@ -169,10 +169,10 @@ function toggle(i){
 
 <!-- 8 Water Conveyance -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(8)}>
+<button class="accordion-header" on:click={()=>toggle(8)} aria-expanded={openIndex===8}>
 <span>Water Conveyance System</span>
 <span class="icon">{openIndex===8 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===8}
 <div class="accordion-body">
@@ -190,10 +190,10 @@ function toggle(i){
 
 <!-- 9 Surge Tank -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(9)}>
+<button class="accordion-header" on:click={()=>toggle(9)} aria-expanded={openIndex===9}>
 <span>Surge Tank</span>
 <span class="icon">{openIndex===9 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===9}
 <div class="accordion-body">
@@ -211,10 +211,10 @@ function toggle(i){
 
 <!-- 10 Penstock -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(10)}>
+<button class="accordion-header" on:click={()=>toggle(10)} aria-expanded={openIndex===10}>
 <span>Steel Penstock Pipe</span>
 <span class="icon">{openIndex===10 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===10}
 <div class="accordion-body">
@@ -233,10 +233,10 @@ function toggle(i){
 
 <!-- 11 Powerhouse -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(11)}>
+<button class="accordion-header" on:click={()=>toggle(11)} aria-expanded={openIndex===11}>
 <span>Powerhouse</span>
 <span class="icon">{openIndex===11 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===11}
 <div class="accordion-body">
@@ -254,10 +254,10 @@ function toggle(i){
 
 <!-- 12 Turbine -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(12)}>
+<button class="accordion-header" on:click={()=>toggle(12)} aria-expanded={openIndex===12}>
 <span>Turbine</span>
 <span class="icon">{openIndex===12 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===12}
 <div class="accordion-body">
@@ -276,10 +276,10 @@ function toggle(i){
 
 <!-- 13 Transformer -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(13)}>
+<button class="accordion-header" on:click={()=>toggle(13)} aria-expanded={openIndex===13}>
 <span>Transformer</span>
 <span class="icon">{openIndex===13 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===13}
 <div class="accordion-body">
@@ -297,10 +297,10 @@ function toggle(i){
 
 <!-- 14 Power & Energy -->
 <div class="accordion">
-<div class="accordion-header" on:click={()=>toggle(14)}>
+<button class="accordion-header" on:click={()=>toggle(14)} aria-expanded={openIndex===14}>
 <span>Power and Energy</span>
 <span class="icon">{openIndex===14 ? "−" : "+"}</span>
-</div>
+</button>
 
 {#if openIndex===14}
 <div class="accordion-body">
@@ -390,4 +390,65 @@ transform:translateY(0);
 }
 }
 
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .features-container {
+    padding: 20px;
+  }
+
+  .accordion-body {
+    padding: 10px 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .accordion-header {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+
+  .accordion-body {
+    padding: 10px 15px;
+  }
+
+  td {
+    padding: 6px 0;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .features-container {
+    padding: 15px;
+  }
+
+  .accordion-header {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
 </style>
